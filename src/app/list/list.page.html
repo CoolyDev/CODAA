@@ -1,0 +1,152 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        Votre devis à taux fixe
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding="true">
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+  
+     <ion-item>
+      <ion-label>Origine</ion-label>
+      <ion-select
+      [(ngModel)]="pays_send"
+      interface="popover">
+      <ion-select-option 
+          value="ma">Maroc</ion-select-option>
+          <ion-select-option value="ca">Cameroun</ion-select-option>
+          <ion-select-option value="gb">Gabon</ion-select-option>
+     
+    </ion-select>
+      <ion-select 
+      name="periodSelected" 
+      [(ngModel)]="devise_origine"
+      interface="popover">
+        <ion-select-option 
+        value="MAD">MAD</ion-select-option>
+        <ion-select-option 
+        value="CFA XAF">CFA XAF</ion-select-option>
+        <ion-select-option 
+        value="EURO">EUR</ion-select-option>
+      </ion-select>
+    </ion-item>
+            </div>
+            <div>
+                <ion-item>
+                    <ion-label>Destination</ion-label>
+                    <ion-select 
+                    [(ngModel)]="pays_received" 
+                    interface="popover">
+                        <ion-select-option 
+                        value="ma">Maroc</ion-select-option>
+                        <ion-select-option value="ca">Cameroun</ion-select-option>
+                        <ion-select-option value="gb">Gabon</ion-select-option>
+                        <ion-select-option value="co">Congo</ion-select-option>
+                        <ion-select-option value="fr">France</ion-select-option>
+                      </ion-select>
+                      <ion-select 
+                      name="periodSelected" 
+                      [(ngModel)]="devise_reception"
+                      interface="popover">
+                        <ion-select-option 
+                        value="MAD">MAD</ion-select-option>
+                        <ion-select-option 
+                        value="CFA XAF">CFA XAF</ion-select-option>
+                        <ion-select-option 
+                        value="EUR">EUR</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                       </div>
+            <div>
+                <form>
+                    <ion-list liGabon="full" class="ion-no-margin ion-no-padding">
+                      <ion-item>
+                          <ion-label>Envoie:</ion-label>
+                          <ion-input
+                          [(ngModel)]="send"
+                          name="send"
+                          placeholder="Entrez le montant"></ion-input>
+                          <ion-label
+                          color="primary"
+                          >{{devise_origine}}</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </form>
+            </div>
+           
+          </ion-col>
+          <ion-col>
+            <div>
+            </div>
+            <div>
+                <ion-list>
+                    <ion-radio-group [(ngModel)]="selectedRadio" (click)="fraismode()">
+                      <ion-list-header>
+                        <ion-label>Commission</ion-label>
+                      </ion-list-header>
+                      <ion-item>
+                        <ion-label>Commission inclus</ion-label>
+                        <ion-radio slot="start"
+                         color="success"
+                          value="inclus"
+                          checked
+                          name="inclus"
+                          
+                          >
+                        </ion-radio>
+                      </ion-item>
+            
+                      <ion-item>
+                        <ion-label>Commission exclus</ion-label>
+                        <ion-radio slot="start" color="tertiary" value="exclus"></ion-radio>
+                      </ion-item>
+                    </ion-radio-group>
+                
+                  </ion-list>
+                  <form onsubmit="processForm(event)">
+                      <ion-list liGabon="full" class="ion-no-margin ion-no-padding">
+                        <ion-item>
+                          <ion-label>Reception:
+                                <ion-text>
+                                    {{reception | number: '.2'}}
+                                </ion-text>
+                        </ion-label>
+                        <ion-label color="danger"> 
+                            <ion-text>
+                               
+                            </ion-text>
+                    </ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </form>
+            </div>
+          </ion-col>
+          
+        </ion-row>
+    </ion-grid>
+    <ion-list>
+        <ion-item>
+          <ion-label>Total à payer:<ion-text>{{total | number: '.2'}}</ion-text></ion-label>
+          </ion-item>
+          <ion-button 
+          size="small"
+          color="primary" (click)="calcul()">
+          Calculer</ion-button>
+          <ion-button
+          color="light"
+          size="small"
+          >
+              <ion-icon
+              name="logo-whatsapp"></ion-icon>
+              <a href="whatsapp://send?phone=+212 618-314612">Contactez</a>
+      </ion-button>
+  </ion-list>
+</ion-content>

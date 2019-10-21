@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        Accueil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/accueil.png" alt="" />
+      <ion-card-header>
+        <ion-card-title>Bienvenu sur CODAH</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p> Bienvenue sur CODAH, votre nouveau moyen d’échange d’argent, rapide fiable et sécurisé qui simplifie vos transactions.
+          Vos transactions depuis et vers les pays suivants, Gabon, Cameroun, Congo, Maroc et la France
+            </p>
+      </ion-card-content>
+    </ion-card>
+      <section style="text-align: center">
+          <ion-button 
+          size="small"color="primary" (click)="devis()">Devis</ion-button>
+          <ion-button
+          color="light"
+          size="small"
+          >
+              <ion-icon
+              name="logo-whatsapp"></ion-icon>
+              <a href="whatsapp://send?phone=+212 618-314612">Contact</a>
+      </ion-button>
+             <ion-button
+    color="light"
+    size="small"
+    >
+        <ion-icon
+        size="small" 
+        name="logo-instagram"></ion-icon>
+        <a href="#" onclick="window.open('https://instagram.com/codah_exchange?igshid=3s3yo4ef0ly8', '_system', 'location=yes'); return false;">
+          Evaluez
+      </a>
+     </ion-button>
+        </section>
+</ion-content>
