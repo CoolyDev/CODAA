@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController,private router: Router) {}
+  subscribe:any;
+  constructor(public navCtrl: NavController,private router: Router,public platform:Platform) {
+    this.subscribe=this.platform.backButton.subscribeWithPriority(666666,()=>{
+      if(this.constructor.name=='HomePage'){
+        if(window.confirm("Voulez vous vraiment quittez")){
+            {
+              navigator["app"].exitApp();
+            }
+        }
+      }
+    })
+  }
   devis(){
     this.router.navigateByUrl('/list');
   }
   contactez(){
-this.router.navigateByUrl('whatsapp://send?phone=+212 618-314612')
+this.router.navigateByUrl('whatsapp://send?phone=+212 698-914050')
   }
   evaluez(){
     console.log('yes')

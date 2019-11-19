@@ -1,5 +1,7 @@
 {
   "name": "CODAH",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

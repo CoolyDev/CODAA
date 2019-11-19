@@ -1,5 +1,15 @@
 
 ion-content {
- 
-    --overflow: hidden;
+    overflow: hidden;
+    margin-top: -20px;
+    text-align: center
+  }
+  ion-toolbar{
+    background-color: #00BECB
+  }
+  ion-header{
+    background-color: #00BECB
+  }
+  .select-icon{
+    color: #00BECB 
   }
